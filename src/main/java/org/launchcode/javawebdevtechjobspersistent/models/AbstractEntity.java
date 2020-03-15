@@ -1,18 +1,24 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.Objects;
 
-
+@MappedSuperclass
 public abstract class AbstractEntity {
 
+    @Id
+    @GeneratedValue
     private int id;
 
     private String name;
 
+
     public int getId() {
         return id;
     }
-
+    
     public String getName() {
         return name;
     }
