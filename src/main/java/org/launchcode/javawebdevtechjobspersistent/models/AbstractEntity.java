@@ -1,7 +1,5 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Objects;
 
@@ -18,7 +16,7 @@ public abstract class AbstractEntity {
     public int getId() {
         return id;
     }
-    
+
     public String getName() {
         return name;
     }
