@@ -1,6 +1,11 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Job{
@@ -12,7 +17,11 @@ public class Job{
     private String name;
 
     private String employer;
+
     private String skills;
+
+    @ManyToMany
+    private List<Skill> skill = new ArrayList<>();
 
     public Job() {
     }
@@ -45,7 +54,11 @@ public class Job{
         return skills;
     }
 
-    public void setSkills(String skills) {
-        this.skills = skills;
+    public List<Skill> getSkill() {
+        return skill;
+    }
+
+    public void addSkill (Skill skill) {
+        this.skill.add(skill);
     }
 }
