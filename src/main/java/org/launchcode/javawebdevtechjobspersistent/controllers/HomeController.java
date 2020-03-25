@@ -2,6 +2,7 @@ package org.launchcode.javawebdevtechjobspersistent.controllers;
 
 import org.launchcode.javawebdevtechjobspersistent.models.Employer;
 import org.launchcode.javawebdevtechjobspersistent.models.Job;
+import org.launchcode.javawebdevtechjobspersistent.models.Skill;
 import org.launchcode.javawebdevtechjobspersistent.models.data.EmployerRepository;
 import org.launchcode.javawebdevtechjobspersistent.models.data.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +47,9 @@ public class HomeController {
             return "add";
         }
         Employer employer = employerRepository.findById(employerId).orElse(new Employer());
+        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
         employerRepository.save(employer);
-
-//        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-//        newJob.setSkills(skillObjs);
-
+        skillRepository.saveAll(skillObjs);
         return "redirect:";
 
     }
